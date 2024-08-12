@@ -1,0 +1,282 @@
+---
+title: "4.3 Player Traits as Moderators"
+output: html_notebook
+---
+
+```{r}
+# 匯入實驗資料
+data <- read.csv("C:/Users/David/Desktop/實驗資料分析/實驗資料.csv", stringsAsFactors = TRUE)
+```
+
+```{r}
+# 新增實驗條件的虛擬變數和創意思維前後測變化的欄位
+data$EC <- ifelse(data$Experimental_Condition == "心流", 1, 0)
+
+data$AUT_Fluency_Difference <- data$AUT_Fluency_Posttest - data$AUT_Fluency_Pretest
+data$AUT_Originality_Difference <- data$AUT_Originality_Posttest - data$AUT_Originality_Pretest
+data$RAT_Difference <- data$RAT_Posttest - data$RAT_Pretest
+```
+
+### **Flow Experience**
+
+```{r}
+# 檢驗實驗條件對整體心流的影響是否受到社交取向調節（YES）
+s1 <- lm(Flow_Total ~ Social_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(Flow_Total ~ Social_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 進行斜率分析並繪製交互作用圖
+# install.packages("interactions")
+# library(interactions)
+# install.packages("sandwich")
+# library(sandwich)
+
+sim_slopes(model = s2, pred = "EC", modx = "Social_Orientation")
+interact_plot(model = s2, pred = "EC", modx = "Social_Orientation",
+              x.label = "Experimental Conditions", y.label = "Overall Flow") +
+  scale_x_continuous(breaks = c(0, 1), labels = c("Basic", "Flow-Promoting"))
+```
+
+```{r}
+# 檢驗實驗條件對整體心流的影響是否受到美感取向調節（NO）
+s1 <- lm(Flow_Total ~ Aesthetic_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(Flow_Total ~ Aesthetic_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對整體心流的影響是否受到敘事傾向調節（NO）
+s1 <- lm(Flow_Total ~ Narrative_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(Flow_Total ~ Narrative_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對整體心流的影響是否受到挑戰取向調節（NO）
+s1 <- lm(Flow_Total ~ Challenge_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(Flow_Total ~ Challenge_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對整體心流的影響是否受到目標取向調節（NO）
+s1 <- lm(Flow_Total ~ Goal_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(Flow_Total ~ Goal_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+### **Creative Thinking**
+
+```{r}
+# 檢驗實驗條件對發散思維流暢性的影響是否受到社交取向調節（NO）
+s1 <- lm(AUT_Fluency_Difference ~ Social_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(AUT_Fluency_Difference ~ Social_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對發散思維獨創性的影響是否受到社交取向調節（NO）
+s1 <- lm(AUT_Originality_Difference ~ Social_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(AUT_Originality_Difference ~ Social_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對收斂思維能力的影響是否受到社交取向調節（NO）
+s1 <- lm(RAT_Difference ~ Social_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(RAT_Difference ~ Social_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對發散思維流暢性的影響是否受到美感取向調節（NO）
+s1 <- lm(AUT_Fluency_Difference ~ Aesthetic_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(AUT_Fluency_Difference ~ Aesthetic_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對發散思維獨創性的影響是否受到美感取向調節（NO）
+s1 <- lm(AUT_Originality_Difference ~ Aesthetic_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(AUT_Originality_Difference ~ Aesthetic_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對收斂思維能力的影響是否受到美感取向調節（NO）
+s1 <- lm(RAT_Difference ~ Aesthetic_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(RAT_Difference ~ Aesthetic_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對發散思維流暢性的影響是否受到敘事取向調節（NO）
+s1 <- lm(AUT_Fluency_Difference ~ Narrative_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(AUT_Fluency_Difference ~ Narrative_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對發散思維獨創性的影響是否受到敘事取向調節（NO）
+s1 <- lm(AUT_Originality_Difference ~ Narrative_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(AUT_Originality_Difference ~ Narrative_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對收斂思維能力的影響是否受到敘事取向調節（NO）
+s1 <- lm(RAT_Difference ~ Narrative_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(RAT_Difference ~ Narrative_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對發散思維流暢性的影響是否受到挑戰取向調節（NO）
+s1 <- lm(AUT_Fluency_Difference ~ Challenge_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(AUT_Fluency_Difference ~ Challenge_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對發散思維獨創性的影響是否受到挑戰取向調節（NO）
+s1 <- lm(AUT_Originality_Difference ~ Challenge_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(AUT_Originality_Difference ~ Challenge_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對收斂思維能力的影響是否受到挑戰取向調節（NO）
+s1 <- lm(RAT_Difference ~ Challenge_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(RAT_Difference ~ Challenge_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對發散思維流暢性的影響是否受到目標取向調節（NO）
+s1 <- lm(AUT_Fluency_Difference ~ Goal_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(AUT_Fluency_Difference ~ Goal_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對發散思維獨創性的影響是否受到目標取向調節（NO）
+s1 <- lm(AUT_Originality_Difference ~ Goal_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(AUT_Originality_Difference ~ Goal_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+# 檢驗實驗條件對收斂思維能力的影響是否受到目標取向調節（NO）
+s1 <- lm(RAT_Difference ~ Goal_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(RAT_Difference ~ Goal_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+### **延伸分析（心流體驗 X 社交傾向）**
+
+```{r}
+s1 <- lm(Flow_Balance ~ Social_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(Flow_Balance ~ Social_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+s1 <- lm(Flow_Goal ~ Social_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(Flow_Goal ~ Social_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+s1 <- lm(Flow_Merge ~ Social_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(Flow_Merge ~ Social_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+s1 <- lm(Flow_Control ~ Social_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(Flow_Control ~ Social_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+s1 <- lm(Flow_Loss ~ Social_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(Flow_Loss ~ Social_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+s1 <- lm(Flow_Autotelic ~ Social_Orientation + EC, data = data)
+summary(s1)
+s2 <- lm(Flow_Autotelic ~ Social_Orientation * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+### **延伸分析（Minecraft遊戲經驗）**
+
+```{r}
+s1 <- lm(Flow_Total ~ Social_Orientation * EC, data = data)
+summary(s1)
+s2 <- lm(Flow_Total ~ Social_Orientation * EC + Minecraft_Experience * EC, data = data)
+summary(s2)
+anova(s1, s2)
+```
+
+```{r}
+sim_slopes(model = s2, pred = "EC", modx = "Minecraft_Experience")
+interact_plot(model = s2, pred = "EC", modx = "Minecraft_Experience",
+              x.label = "Experimental Conditions", y.label = "Overall Flow") +
+  scale_x_continuous(breaks = c(0, 1), labels = c("Basic", "Flow-Promoting"))
+```

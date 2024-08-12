@@ -1,0 +1,854 @@
+---
+title: "4.1 Descriptive Statistics"
+output: html_notebook
+---
+
+```{r}
+# 匯入實驗資料
+data <- read.csv("C:/Users/David/Desktop/實驗資料分析/實驗資料.csv", stringsAsFactors = TRUE)
+```
+
+### **兩組樣本間的可比較性**
+
+```{r}
+# 觀察兩組樣本的年齡分布
+mean(data[data$Experimental_Condition == "心流", "Age"])
+sd(data[data$Experimental_Condition == "心流", "Age"])
+mean(data[data$Experimental_Condition == "原始", "Age"])
+sd(data[data$Experimental_Condition == "原始", "Age"])
+
+qqnorm(data[data$Experimental_Condition == "心流", "Age"])
+qqline(data[data$Experimental_Condition == "心流", "Age"])
+qqnorm(data[data$Experimental_Condition == "原始", "Age"])
+qqline(data[data$Experimental_Condition == "原始", "Age"])
+```
+
+```{r}
+# 檢驗兩組樣本的年齡是否為常態分布（NO）
+shapiro.test(data[data$Experimental_Condition == "心流", "Age"])
+shapiro.test(data[data$Experimental_Condition == "原始", "Age"])
+```
+
+```{r}
+# 檢驗兩組樣本的年齡中位數是否相同（YES）
+wilcox.test(Age ~ Experimental_Condition, data = data)
+```
+
+```{r}
+# 觀察兩組樣本的性別分布
+gender_table <- table(data$Experimental_Condition, data$Gender)
+gender_table
+prop.table(gender_table, margin = 1)
+```
+
+```{r}
+# 檢驗兩組樣本的性別分布是否相同（YES）
+result <- fisher.test(gender_table)
+result
+```
+
+```{r}
+# 觀察兩組樣本的每週遊戲時數分布
+mean(data[data$Experimental_Condition == "心流", "Weekly_Game_Hours"])
+sd(data[data$Experimental_Condition == "心流", "Weekly_Game_Hours"])
+mean(data[data$Experimental_Condition == "原始", "Weekly_Game_Hours"])
+sd(data[data$Experimental_Condition == "原始", "Weekly_Game_Hours"])
+
+qqnorm(data[data$Experimental_Condition == "心流", "Weekly_Game_Hours"])
+qqline(data[data$Experimental_Condition == "心流", "Weekly_Game_Hours"])
+qqnorm(data[data$Experimental_Condition == "原始", "Weekly_Game_Hours"])
+qqline(data[data$Experimental_Condition == "原始", "Weekly_Game_Hours"])
+```
+
+```{r}
+# 檢驗兩組樣本的每週遊戲時數是否為常態分布（NO/YES）
+shapiro.test(data[data$Experimental_Condition == "心流", "Weekly_Game_Hours"])
+shapiro.test(data[data$Experimental_Condition == "原始", "Weekly_Game_Hours"])
+```
+
+```{r}
+# 檢驗兩組樣本的每週遊戲時數中位數是否相同（YES）
+wilcox.test(Weekly_Game_Hours ~ Experimental_Condition, data = data)
+```
+
+```{r}
+# 觀察兩組樣本的Minecraft遊玩經驗分布
+minecraft_table <- table(data$Experimental_Condition, data$Minecraft_Experience)
+minecraft_table
+prop.table(minecraft_table, margin = 1)
+```
+
+```{r}
+# 檢驗兩組樣本的Minecraft遊玩經驗分布是否相同（YES）
+result <- fisher.test(minecraft_table)
+result
+```
+
+```{r}
+# 觀察兩組樣本的Minecraft建造熟悉度分布
+mean(data[data$Experimental_Condition == "心流", "Minecraft_Building"])
+sd(data[data$Experimental_Condition == "心流", "Minecraft_Building"])
+mean(data[data$Experimental_Condition == "原始", "Minecraft_Building"])
+sd(data[data$Experimental_Condition == "原始", "Minecraft_Building"])
+
+qqnorm(data[data$Experimental_Condition == "心流", "Minecraft_Building"])
+qqline(data[data$Experimental_Condition == "心流", "Minecraft_Building"])
+qqnorm(data[data$Experimental_Condition == "原始", "Minecraft_Building"])
+qqline(data[data$Experimental_Condition == "原始", "Minecraft_Building"])
+```
+
+```{r}
+# 檢驗兩組樣本的Minecraft建造熟悉度是否為常態分布（NO）
+shapiro.test(data[data$Experimental_Condition == "心流", "Minecraft_Building"])
+shapiro.test(data[data$Experimental_Condition == "原始", "Minecraft_Building"])
+```
+
+```{r}
+# 檢驗兩組樣本的Minecraft建造熟悉度中位數是否相同（YES）
+wilcox.test(Minecraft_Building ~ Experimental_Condition, data = data)
+```
+
+```{r}
+# 觀察兩組樣本的社交取向分布
+mean(data[data$Experimental_Condition == "心流", "Social_Orientation"])
+sd(data[data$Experimental_Condition == "心流", "Social_Orientation"])
+mean(data[data$Experimental_Condition == "原始", "Social_Orientation"])
+sd(data[data$Experimental_Condition == "原始", "Social_Orientation"])
+
+qqnorm(data[data$Experimental_Condition == "心流", "Social_Orientation"])
+qqline(data[data$Experimental_Condition == "心流", "Social_Orientation"])
+qqnorm(data[data$Experimental_Condition == "原始", "Social_Orientation"])
+qqline(data[data$Experimental_Condition == "原始", "Social_Orientation"])
+```
+
+```{r}
+# 檢驗兩組樣本的社交取向是否為常態分布（YES）
+shapiro.test(data[data$Experimental_Condition == "心流", "Social_Orientation"])
+shapiro.test(data[data$Experimental_Condition == "原始", "Social_Orientation"])
+```
+
+```{r}
+# 檢驗兩組樣本的社交取向中位數是否相同（YES）
+wilcox.test(Social_Orientation ~ Experimental_Condition, data = data)
+```
+
+```{r}
+# 觀察兩組樣本的美感取向分布
+mean(data[data$Experimental_Condition == "心流", "Aesthetic_Orientation"])
+sd(data[data$Experimental_Condition == "心流", "Aesthetic_Orientation"])
+mean(data[data$Experimental_Condition == "原始", "Aesthetic_Orientation"])
+sd(data[data$Experimental_Condition == "原始", "Aesthetic_Orientation"])
+
+qqnorm(data[data$Experimental_Condition == "心流", "Aesthetic_Orientation"])
+qqline(data[data$Experimental_Condition == "心流", "Aesthetic_Orientation"])
+qqnorm(data[data$Experimental_Condition == "原始", "Aesthetic_Orientation"])
+qqline(data[data$Experimental_Condition == "原始", "Aesthetic_Orientation"])
+```
+
+```{r}
+# 檢驗兩組樣本的美感取向是否為常態分布（YES/NO）
+shapiro.test(data[data$Experimental_Condition == "心流", "Aesthetic_Orientation"])
+shapiro.test(data[data$Experimental_Condition == "原始", "Aesthetic_Orientation"])
+```
+
+```{r}
+# 檢驗兩組樣本的美感取向中位數是否相同（YES）
+wilcox.test(Aesthetic_Orientation ~ Experimental_Condition, data = data)
+```
+
+```{r}
+# 觀察兩組樣本的敘事取向分布
+mean(data[data$Experimental_Condition == "心流", "Narrative_Orientation"])
+sd(data[data$Experimental_Condition == "心流", "Narrative_Orientation"])
+mean(data[data$Experimental_Condition == "原始", "Narrative_Orientation"])
+sd(data[data$Experimental_Condition == "原始", "Narrative_Orientation"])
+
+qqnorm(data[data$Experimental_Condition == "心流", "Narrative_Orientation"])
+qqline(data[data$Experimental_Condition == "心流", "Narrative_Orientation"])
+qqnorm(data[data$Experimental_Condition == "原始", "Narrative_Orientation"])
+qqline(data[data$Experimental_Condition == "原始", "Narrative_Orientation"])
+```
+
+```{r}
+# 檢驗兩組樣本的敘事取向是否為常態分布（YES）
+shapiro.test(data[data$Experimental_Condition == "心流", "Narrative_Orientation"])
+shapiro.test(data[data$Experimental_Condition == "原始", "Narrative_Orientation"])
+```
+
+```{r}
+# 檢驗兩組樣本的敘事取向中位數是否相同（YES）
+wilcox.test(Narrative_Orientation ~ Experimental_Condition, data = data)
+```
+
+```{r}
+# 觀察兩組樣本的挑戰取向分布
+mean(data[data$Experimental_Condition == "心流", "Challenge_Orientation"])
+sd(data[data$Experimental_Condition == "心流", "Challenge_Orientation"])
+mean(data[data$Experimental_Condition == "原始", "Challenge_Orientation"])
+sd(data[data$Experimental_Condition == "原始", "Challenge_Orientation"])
+
+qqnorm(data[data$Experimental_Condition == "心流", "Challenge_Orientation"])
+qqline(data[data$Experimental_Condition == "心流", "Challenge_Orientation"])
+qqnorm(data[data$Experimental_Condition == "原始", "Challenge_Orientation"])
+qqline(data[data$Experimental_Condition == "原始", "Challenge_Orientation"])
+```
+
+```{r}
+# 檢驗兩組樣本的挑戰取向是否為常態分布（YES）
+shapiro.test(data[data$Experimental_Condition == "心流", "Challenge_Orientation"])
+shapiro.test(data[data$Experimental_Condition == "原始", "Challenge_Orientation"])
+```
+
+```{r}
+# 檢驗兩組樣本的挑戰取向中位數是否相同（YES）
+wilcox.test(Challenge_Orientation ~ Experimental_Condition, data = data)
+```
+
+```{r}
+# 觀察兩組樣本的目標取向分布
+mean(data[data$Experimental_Condition == "心流", "Goal_Orientation"])
+sd(data[data$Experimental_Condition == "心流", "Goal_Orientation"])
+mean(data[data$Experimental_Condition == "原始", "Goal_Orientation"])
+sd(data[data$Experimental_Condition == "原始", "Goal_Orientation"])
+
+qqnorm(data[data$Experimental_Condition == "心流", "Goal_Orientation"])
+qqline(data[data$Experimental_Condition == "心流", "Goal_Orientation"])
+qqnorm(data[data$Experimental_Condition == "原始", "Goal_Orientation"])
+qqline(data[data$Experimental_Condition == "原始", "Goal_Orientation"])
+```
+
+```{r}
+# 檢驗兩組樣本的目標取向是否為常態分布（YES）
+shapiro.test(data[data$Experimental_Condition == "心流", "Goal_Orientation"])
+shapiro.test(data[data$Experimental_Condition == "原始", "Goal_Orientation"])
+```
+
+```{r}
+# 檢驗兩組樣本的目標取向中位數是否相同（YES）
+wilcox.test(Goal_Orientation ~ Experimental_Condition, data = data)
+```
+
+```{r}
+# 觀察兩組樣本實驗前的發散思維流暢性分布
+mean(data[data$Experimental_Condition == "心流", "AUT_Fluency_Pretest"])
+sd(data[data$Experimental_Condition == "心流", "AUT_Fluency_Pretest"])
+mean(data[data$Experimental_Condition == "原始", "AUT_Fluency_Pretest"])
+sd(data[data$Experimental_Condition == "原始", "AUT_Fluency_Pretest"])
+
+qqnorm(data[data$Experimental_Condition == "心流", "AUT_Fluency_Pretest"])
+qqline(data[data$Experimental_Condition == "心流", "AUT_Fluency_Pretest"])
+qqnorm(data[data$Experimental_Condition == "原始", "AUT_Fluency_Pretest"])
+qqline(data[data$Experimental_Condition == "原始", "AUT_Fluency_Pretest"])
+```
+
+```{r}
+# 檢驗兩組樣本實驗前的發散思維流暢性是否為常態分布（YES/NO）
+shapiro.test(data[data$Experimental_Condition == "心流", "AUT_Fluency_Pretest"])
+shapiro.test(data[data$Experimental_Condition == "原始", "AUT_Fluency_Pretest"])
+```
+
+```{r}
+# 檢驗兩組樣本實驗前的發散思維流暢性中位數是否相同（YES）
+wilcox.test(AUT_Fluency_Pretest ~ Experimental_Condition, data = data)
+```
+
+```{r}
+# 觀察兩組樣本實驗前的發散思維獨創性分布
+mean(data[data$Experimental_Condition == "心流", "AUT_Originality_Pretest"])
+sd(data[data$Experimental_Condition == "心流", "AUT_Originality_Pretest"])
+mean(data[data$Experimental_Condition == "原始", "AUT_Originality_Pretest"])
+sd(data[data$Experimental_Condition == "原始", "AUT_Originality_Pretest"])
+
+qqnorm(data[data$Experimental_Condition == "心流", "AUT_Originality_Pretest"])
+qqline(data[data$Experimental_Condition == "心流", "AUT_Originality_Pretest"])
+qqnorm(data[data$Experimental_Condition == "原始", "AUT_Originality_Pretest"])
+qqline(data[data$Experimental_Condition == "原始", "AUT_Originality_Pretest"])
+```
+
+```{r}
+# 檢驗兩組樣本實驗前的發散思維獨創性是否為常態分布（YES）
+shapiro.test(data[data$Experimental_Condition == "心流", "AUT_Originality_Pretest"])
+shapiro.test(data[data$Experimental_Condition == "原始", "AUT_Originality_Pretest"])
+```
+
+```{r}
+# 檢驗兩組樣本實驗前的發散思維獨創性中位數是否相同（YES）
+wilcox.test(AUT_Originality_Pretest ~ Experimental_Condition, data = data)
+```
+
+```{r}
+# 觀察兩組樣本實驗前的收斂思維能力分布
+mean(data[data$Experimental_Condition == "心流", "RAT_Pretest"])
+sd(data[data$Experimental_Condition == "心流", "RAT_Pretest"])
+mean(data[data$Experimental_Condition == "原始", "RAT_Pretest"])
+sd(data[data$Experimental_Condition == "原始", "RAT_Pretest"])
+
+qqnorm(data[data$Experimental_Condition == "心流", "RAT_Pretest"])
+qqline(data[data$Experimental_Condition == "心流", "RAT_Pretest"])
+qqnorm(data[data$Experimental_Condition == "原始", "RAT_Pretest"])
+qqline(data[data$Experimental_Condition == "原始", "RAT_Pretest"])
+```
+
+```{r}
+# 檢驗兩組樣本實驗前的收斂思維能力是否為常態分布（YES/NO）
+shapiro.test(data[data$Experimental_Condition == "心流", "RAT_Pretest"])
+shapiro.test(data[data$Experimental_Condition == "原始", "RAT_Pretest"])
+```
+
+```{r}
+# 檢驗兩組樣本實驗前的收斂思維能力中位數是否相同（YES）
+wilcox.test(RAT_Pretest ~ Experimental_Condition, data = data)
+```
+
+### **各變數間的相關性**
+
+```{r}
+# 繪製每週遊戲時數與Minecraft遊玩經驗的散布圖
+plot(data$Weekly_Game_Hours, data$Minecraft_Experience)
+```
+
+```{r}
+# 檢驗每週遊戲時數與Minecraft遊玩經驗是否有相關性（YES）
+result <- cor.test(data$Weekly_Game_Hours, data$Minecraft_Experience, alternative = "two.sided", method = "spearman")
+result
+```
+
+```{r}
+# 繪製每週遊戲時數與Minecraft建造熟悉度的散布圖
+plot(data$Weekly_Game_Hours, data$Minecraft_Building)
+```
+
+```{r}
+# 檢驗每週遊戲時數與Minecraft建造熟悉度是否有相關性（NO）
+cor.test(data$Weekly_Game_Hours, data$Minecraft_Building, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製每週遊戲時數與社交取向的散布圖
+plot(data$Weekly_Game_Hours, data$Social_Orientation)
+```
+
+```{r}
+# 檢驗每週遊戲時數與社交取向是否有相關性（NO）
+cor.test(data$Weekly_Game_Hours, data$Social_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製每週遊戲時數與美感取向的散布圖
+plot(data$Weekly_Game_Hours, data$Aesthetic_Orientation)
+```
+
+```{r}
+# 檢驗每週遊戲時數與美感取向是否有相關性（NO）
+cor.test(data$Weekly_Game_Hours, data$Aesthetic_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製每週遊戲時數與敘事取向的散布圖
+plot(data$Weekly_Game_Hours, data$Narrative_Orientation)
+```
+
+```{r}
+# 檢驗每週遊戲時數與敘事取向是否有相關性（NO）
+cor.test(data$Weekly_Game_Hours, data$Narrative_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製每週遊戲時數與挑戰取向的散布圖
+plot(data$Weekly_Game_Hours, data$Challenge_Orientation)
+```
+
+```{r}
+# 檢驗每週遊戲時數與挑戰取向是否有相關性（NO）
+cor.test(data$Weekly_Game_Hours, data$Challenge_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製每週遊戲時數與目標取向的散布圖
+plot(data$Weekly_Game_Hours, data$Goal_Orientation)
+```
+
+```{r}
+# 檢驗每週遊戲時數與目標取向是否有相關性（NO）
+cor.test(data$Weekly_Game_Hours, data$Goal_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製每週遊戲時數與實驗前的發散思維流暢性的散布圖
+plot(data$Weekly_Game_Hours, data$AUT_Fluency_Pretest)
+```
+
+```{r}
+# 檢驗每週遊戲時數與實驗前的發散思維流暢性是否有相關性（NO）
+cor.test(data$Weekly_Game_Hours, data$AUT_Fluency_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製每週遊戲時數與實驗前的發散思維獨創性的散布圖
+plot(data$Weekly_Game_Hours, data$AUT_Originality_Pretest)
+```
+
+```{r}
+# 檢驗每週遊戲時數與實驗前的發散思維獨創性是否有相關性（NO）
+cor.test(data$Weekly_Game_Hours, data$AUT_Originality_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製每週遊戲時數與實驗前的收斂思維能力的散布圖
+plot(data$Weekly_Game_Hours, data$RAT_Pretest)
+```
+
+```{r}
+# 檢驗每週遊戲時數與實驗前的收斂思維能力是否有相關性（NO）
+cor.test(data$Weekly_Game_Hours, data$RAT_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft遊玩經驗與Minecraft建造熟悉度的散布圖
+plot(data$Minecraft_Experience, data$Minecraft_Building)
+```
+
+```{r}
+# 檢驗Minecraft遊玩經驗與Minecraft建造熟悉度是否有相關性（YES）
+cor.test(data$Minecraft_Experience, data$Minecraft_Building, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft遊玩經驗與社交取向的散布圖
+plot(data$Minecraft_Experience, data$Social_Orientation)
+```
+
+```{r}
+# 檢驗Minecraft遊玩經驗與社交取向是否有相關性（NO）
+cor.test(data$Minecraft_Experience, data$Social_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft遊玩經驗與美感取向的散布圖
+plot(data$Minecraft_Experience, data$Aesthetic_Orientation)
+```
+
+```{r}
+# 檢驗Minecraft遊玩經驗與美感取向是否有相關性（NO）
+cor.test(data$Minecraft_Experience, data$Aesthetic_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft遊玩經驗與敘事取向的散布圖
+plot(data$Minecraft_Experience, data$Narrative_Orientation)
+```
+
+```{r}
+# 檢驗Minecraft遊玩經驗與敘事取向是否有相關性（NO）
+cor.test(data$Minecraft_Experience, data$Narrative_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft遊玩經驗與挑戰取向的散布圖
+plot(data$Minecraft_Experience, data$Challenge_Orientation)
+```
+
+```{r}
+# 檢驗Minecraft遊玩經驗與挑戰取向是否有相關性（NO）
+cor.test(data$Minecraft_Experience, data$Challenge_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft遊玩經驗與目標取向的散布圖
+plot(data$Minecraft_Experience, data$Goal_Orientation)
+```
+
+```{r}
+# 檢驗Minecraft遊玩經驗與目標取向是否有相關性（NO）
+cor.test(data$Minecraft_Experience, data$Goal_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft遊玩經驗與實驗前的發散思維流暢性的散布圖
+plot(data$Minecraft_Experience, data$AUT_Fluency_Pretest)
+```
+
+```{r}
+# 檢驗Minecraft遊玩經驗與實驗前的發散思維流暢性是否有相關性（NO）
+cor.test(data$Minecraft_Experience, data$AUT_Fluency_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft遊玩經驗與實驗前的發散思維獨創性的散布圖
+plot(data$Minecraft_Experience, data$AUT_Originality_Pretest)
+```
+
+```{r}
+# 檢驗Minecraft遊玩經驗與實驗前的發散思維獨創性是否有相關性（NO）
+cor.test(data$Minecraft_Experience, data$AUT_Originality_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft遊玩經驗與實驗前的收斂思維能力的散布圖
+plot(data$Minecraft_Experience, data$RAT_Pretest)
+```
+
+```{r}
+# 檢驗Minecraft遊玩經驗與實驗前的收斂思維能力是否有相關性（NO）
+cor.test(data$Minecraft_Experience, data$RAT_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft建造熟悉度與社交取向的散布圖
+plot(data$Minecraft_Building, data$Social_Orientation)
+```
+
+```{r}
+# 檢驗Minecraft建造熟悉度與社交取向是否有相關性（NO）
+cor.test(data$Minecraft_Building, data$Social_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft建造熟悉度與美感取向的散布圖
+plot(data$Minecraft_Building, data$Aesthetic_Orientation)
+```
+
+```{r}
+# 檢驗Minecraft建造熟悉度與美感取向是否有相關性（YES）
+cor.test(data$Minecraft_Building, data$Aesthetic_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft建造熟悉度與敘事取向的散布圖
+plot(data$Minecraft_Building, data$Narrative_Orientation)
+```
+
+```{r}
+# 檢驗Minecraft建造熟悉度與敘事取向是否有相關性（NO）
+cor.test(data$Minecraft_Building, data$Narrative_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft建造熟悉度與挑戰取向的散布圖
+plot(data$Minecraft_Building, data$Challenge_Orientation)
+```
+
+```{r}
+# 檢驗Minecraft建造熟悉度與挑戰取向是否有相關性（NO）
+cor.test(data$Minecraft_Building, data$Challenge_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft建造熟悉度與目標取向的散布圖
+plot(data$Minecraft_Building, data$Goal_Orientation)
+```
+
+```{r}
+# 檢驗Minecraft建造熟悉度與目標取向是否有相關性（NO）
+cor.test(data$Minecraft_Building, data$Goal_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft建造熟悉度與實驗前的發散思維流暢性的散布圖
+plot(data$Minecraft_Building, data$AUT_Fluency_Pretest)
+```
+
+```{r}
+# 檢驗Minecraft建造熟悉度與實驗前的發散思維流暢性是否有相關性（NO）
+cor.test(data$Minecraft_Building, data$AUT_Fluency_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft建造熟悉度與實驗前的發散思維獨創性的散布圖
+plot(data$Minecraft_Building, data$AUT_Originality_Pretest)
+```
+
+```{r}
+# 檢驗Minecraft建造熟悉度與實驗前的發散思維獨創性是否有相關性（NO）
+cor.test(data$Minecraft_Building, data$AUT_Originality_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製Minecraft建造熟悉度與實驗前的收斂思維能力的散布圖
+plot(data$Minecraft_Building, data$RAT_Pretest)
+```
+
+```{r}
+# 檢驗Minecraft建造熟悉度與實驗前的收斂思維能力是否有相關性（NO）
+cor.test(data$Minecraft_Building, data$RAT_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製社交取向與美感取向的散布圖
+plot(data$Social_Orientation, data$Aesthetic_Orientation)
+```
+
+```{r}
+# 檢驗社交取向與美感取向是否有相關性（NO）
+cor.test(data$Social_Orientation, data$Aesthetic_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製社交取向與敘事取向的散布圖
+plot(data$Social_Orientation, data$Narrative_Orientation)
+```
+
+```{r}
+# 檢驗社交取向與敘事取向是否有相關性（MARGINAL）
+cor.test(data$Social_Orientation, data$Narrative_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製社交取向與挑戰取向的散布圖
+plot(data$Social_Orientation, data$Challenge_Orientation)
+```
+
+```{r}
+# 檢驗社交取向與挑戰取向是否有相關性（NO）
+cor.test(data$Social_Orientation, data$Challenge_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製社交取向與目標取向的散布圖
+plot(data$Social_Orientation, data$Goal_Orientation)
+```
+
+```{r}
+# 檢驗社交取向與目標取向是否有相關性（NO）
+cor.test(data$Social_Orientation, data$Goal_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製社交取向與實驗前的發散思維流暢性的散布圖
+plot(data$Social_Orientation, data$AUT_Fluency_Pretest)
+```
+
+```{r}
+# 檢驗社交取向與實驗前的發散思維流暢性是否有相關性（NO）
+cor.test(data$Social_Orientation, data$AUT_Fluency_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製社交取向與實驗前的發散思維獨創性的散布圖
+plot(data$Social_Orientation, data$AUT_Originality_Pretest)
+```
+
+```{r}
+# 檢驗社交取向與實驗前的發散思維獨創性是否有相關性（NO）
+cor.test(data$Social_Orientation, data$AUT_Originality_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製社交取向與實驗前的收斂思維能力的散布圖
+plot(data$Social_Orientation, data$RAT_Pretest)
+```
+
+```{r}
+# 檢驗社交取向與實驗前的收斂思維能力是否有相關性（NO）
+cor.test(data$Social_Orientation, data$RAT_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製美感取向與敘事取向的散布圖
+plot(data$Aesthetic_Orientation, data$Narrative_Orientation)
+```
+
+```{r}
+# 檢驗美感取向與敘事取向是否有相關性（YES）
+cor.test(data$Aesthetic_Orientation, data$Narrative_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製美感取向與挑戰取向的散布圖
+plot(data$Aesthetic_Orientation, data$Challenge_Orientation)
+```
+
+```{r}
+# 檢驗美感取向與挑戰取向是否有相關性（YES）
+cor.test(data$Aesthetic_Orientation, data$Challenge_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製美感取向與目標取向的散布圖
+plot(data$Aesthetic_Orientation, data$Goal_Orientation)
+```
+
+```{r}
+# 檢驗美感取向與目標取向是否有相關性（NO）
+cor.test(data$Aesthetic_Orientation, data$Goal_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製美感取向與實驗前的發散思維流暢性的散布圖
+plot(data$Aesthetic_Orientation, data$AUT_Fluency_Pretest)
+```
+
+```{r}
+# 檢驗美感取向與實驗前的發散思維流暢性是否有相關性（NO）
+cor.test(data$Aesthetic_Orientation, data$AUT_Fluency_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製美感取向與實驗前的發散思維獨創性的散布圖
+plot(data$Aesthetic_Orientation, data$AUT_Originality_Pretest)
+```
+
+```{r}
+# 檢驗美感取向與實驗前的發散思維獨創性是否有相關性（NO）
+cor.test(data$Aesthetic_Orientation, data$AUT_Originality_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製美感取向與實驗前的收斂思維能力的散布圖
+plot(data$Aesthetic_Orientation, data$RAT_Pretest)
+```
+
+```{r}
+# 檢驗美感取向與實驗前的收斂思維能力是否有相關性（NO）
+cor.test(data$Aesthetic_Orientation, data$RAT_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製敘事取向與挑戰取向的散布圖
+plot(data$Narrative_Orientation, data$Challenge_Orientation)
+```
+
+```{r}
+# 檢驗敘事取向與挑戰取向是否有相關性（NO）
+cor.test(data$Narrative_Orientation, data$Challenge_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製敘事取向與目標取向的散布圖
+plot(data$Narrative_Orientation, data$Goal_Orientation)
+```
+
+```{r}
+# 檢驗敘事取向與目標取向是否有相關性（YES）
+cor.test(data$Narrative_Orientation, data$Goal_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製敘事取向與實驗前的發散思維流暢性的散布圖
+plot(data$Narrative_Orientation, data$AUT_Fluency_Pretest)
+```
+
+```{r}
+# 檢驗敘事取向與實驗前的發散思維流暢性是否有相關性（NO）
+cor.test(data$Narrative_Orientation, data$AUT_Fluency_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製敘事取向與實驗前的發散思維獨創性的散布圖
+plot(data$Narrative_Orientation, data$AUT_Originality_Pretest)
+```
+
+```{r}
+# 檢驗敘事取向與實驗前的發散思維獨創性是否有相關性（NO）
+cor.test(data$Narrative_Orientation, data$AUT_Originality_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製敘事取向與實驗前的收斂思維能力的散布圖
+plot(data$Narrative_Orientation, data$RAT_Pretest)
+```
+
+```{r}
+# 檢驗敘事取向與實驗前的收斂思維能力是否有相關性（NO）
+cor.test(data$Narrative_Orientation, data$RAT_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製挑戰取向與目標取向的散布圖
+plot(data$Challenge_Orientation, data$Goal_Orientation)
+```
+
+```{r}
+# 檢驗挑戰取向與目標取向是否有相關性（NO）
+cor.test(data$Challenge_Orientation, data$Goal_Orientation, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製挑戰取向與實驗前的發散思維流暢性的散布圖
+plot(data$Challenge_Orientation, data$AUT_Fluency_Pretest)
+```
+
+```{r}
+# 檢驗挑戰取向與實驗前的發散思維流暢性是否有相關性（NO）
+cor.test(data$Challenge_Orientation, data$AUT_Fluency_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製挑戰取向與實驗前的發散思維獨創性的散布圖
+plot(data$Challenge_Orientation, data$AUT_Originality_Pretest)
+```
+
+```{r}
+# 檢驗挑戰取向與實驗前的發散思維獨創性是否有相關性（NO）
+cor.test(data$Challenge_Orientation, data$AUT_Originality_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製挑戰取向與實驗前的收斂思維能力的散布圖
+plot(data$Challenge_Orientation, data$RAT_Pretest)
+```
+
+```{r}
+# 檢驗挑戰取向與實驗前的收斂思維能力是否有相關性（NO）
+cor.test(data$Challenge_Orientation, data$RAT_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製目標取向與實驗前的發散思維流暢性的散布圖
+plot(data$Goal_Orientation, data$AUT_Fluency_Pretest)
+```
+
+```{r}
+# 檢驗目標取向與實驗前的發散思維流暢性是否有相關性（NO）
+cor.test(data$Goal_Orientation, data$AUT_Fluency_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製目標取向與實驗前的發散思維獨創性的散布圖
+plot(data$Goal_Orientation, data$AUT_Originality_Pretest)
+```
+
+```{r}
+# 檢驗目標取向與實驗前的發散思維獨創性是否有相關性（NO）
+cor.test(data$Goal_Orientation, data$AUT_Originality_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製目標取向與實驗前的收斂思維能力的散布圖
+plot(data$Goal_Orientation, data$RAT_Pretest)
+```
+
+```{r}
+# 檢驗目標取向與實驗前的收斂思維能力是否有相關性（NO）
+cor.test(data$Goal_Orientation, data$RAT_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製實驗前的發散思維流暢性與實驗前的發散思維獨創性的散布圖
+plot(data$AUT_Fluency_Pretest, data$AUT_Originality_Pretest)
+```
+
+```{r}
+# 檢驗實驗前的發散思維流暢性與實驗前的發散思維獨創性是否有相關性（NO）
+cor.test(data$AUT_Fluency_Pretest, data$AUT_Originality_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製實驗前的發散思維流暢性與實驗前的收斂思維能力的散布圖
+plot(data$AUT_Fluency_Pretest, data$RAT_Pretest)
+```
+
+```{r}
+# 檢驗實驗前的發散思維流暢性與實驗前的收斂思維能力是否有相關性（NO）
+cor.test(data$AUT_Fluency_Pretest, data$RAT_Pretest, alternative = "two.sided", method = "spearman")
+```
+
+```{r}
+# 繪製實驗前的發散思維獨創性與實驗前的收斂思維能力的散布圖
+plot(data$AUT_Originality_Pretest, data$RAT_Pretest)
+```
+
+```{r}
+# 檢驗實驗前的發散思維獨創性與實驗前的收斂思維能力是否有相關性（YES）
+cor.test(data$AUT_Originality_Pretest, data$RAT_Pretest, alternative = "two.sided", method = "spearman")
+```
