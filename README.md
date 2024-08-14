@@ -9,7 +9,7 @@
 
 ### Player Traits
 
-- **描述：** 用於預測受試者是否可能發生嚴重動暈以至於無法完成實驗。
-- **操作與使用方法：** 請參考 [VIMSSQ/操作與使用說明.md](VIMSSQ/操作與使用說明.md) 文件，其中放了問卷翻譯內容。
+- **描述：** 評估參與者對不同遊戲機制的偏好，以了解其是否調節 Minecraft 中心流促進機制的影響。
+- **測量工具：** 請參考 [VIMSSQ/操作與使用說明.md](VIMSSQ/操作與使用說明.md) 文件，其中放了問卷翻譯內容。
 - **文獻來源：**  
   - Golding, J. F., Rafiq, A., & Keshavarz, B. (2021). Predicting individual susceptibility to visually induced motion sickness by questionnaire. Frontiers in Virtual Reality, 2, 576871.
