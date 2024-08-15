@@ -17,7 +17,7 @@
 ### Divergent Thinking
 
 - **描述：** 評估參與者的發散思維能力，以分析兩種版本 Minecraft 對創意思考的影響和建築創造力指標的效標關聯效度。
-- **測量工具：** 請參考 [Measures/Divergent_Thinking/Alternate_Uses_Test.md](Measures/Divergent_Thinking/使用說明.md) 文件，內含所使用測驗的介紹和完整題目。
+- **測量工具：** 請參考 [Measures/Divergent_Thinking/使用說明.md](Measures/Divergent_Thinking/使用說明.md) 文件，內含所使用測驗的介紹和完整題目。
 - **文獻來源：**
   - Jauk, E., Benedek, M., Dunst, B., and Neubauer, A. C. The relationship between intelligence and creativity: New support for the threshold hypothesis by means of empirical breakpoint detection. Intelligence 41, 4 (2013), 212–221. https://doi.org/10.1016/j.intell.2013.03.003.
   - Silvia, P. J., Winterstein, B. P., Willse, J. T., Barona, C. M., Cram, J. T., Hess, K. I., Martinez, J. L., and Richard, C. A. Assessing creativity with divergent thinking tasks: Exploring the reliability and validity of new subjective scoring methods. Psychology of Aesthetics, Creativity, and the Arts 2, 2 (May 2008), 68–85. https://doi.org/10.1037/1931-3896.2.2.68.
