@@ -16,7 +16,7 @@
 
 ### Divergent Thinking
 
-- **描述：** 評估參與者在遊玩兩種版本的 Minecraft 前後的發散思維能力，以分析其對創意思考的影響，以及傳統創意思考測驗與 Minecraft 建築創造力的相關性。
+- **描述：** 評估參與者的發散思維能力，以分析兩種版本 Minecraft 對創意思考的影響和建築創造力指標的效標關聯效度。
 - **測量工具：** 請參考 [Measures/Divergent_Thinking/Alternate_Uses_Test.md](Measures/Divergent_Thinking/Alternate_Uses_Test.md) 文件，內含所使用測驗的介紹和完整題目。
 - **文獻來源：**
   - Tondello, G. F., Arrambide, K., Ribeiro, G., Cen, A. J.-l., and Nacke, L. E. “I don’t fit into a single type”: A trait model and scale of game playing preferences. In Human-Computer Interaction – INTERACT 2019 (August 2019), vol. 2, pp. 375–395. https://doi.org/10.1007/978-3-030-29384-0_23.
