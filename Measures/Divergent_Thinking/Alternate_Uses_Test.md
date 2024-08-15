@@ -14,4 +14,6 @@
 
 ## 參考文獻
 
-- Tondello, G. F., Arrambide, K., Ribeiro, G., Cen, A. J.-l., and Nacke, L. E. “I don’t fit into a single type”: A trait model and scale of game playing preferences. In Human-Computer Interaction – INTERACT 2019 (August 2019), vol. 2, pp. 375–395. https://doi.org/10.1007/978-3-030-29384-0_23.
+- Jauk, E., Benedek, M., Dunst, B., and Neubauer, A. C. The relationship between intelligence and creativity: New support for the threshold hypothesis by means of empirical breakpoint detection. Intelligence 41, 4 (2013), 212–221. https://doi.org/10.1016/j.intell.2013.03.003.
+- Silvia, P. J., Winterstein, B. P., Willse, J. T., Barona, C. M., Cram, J. T., Hess, K. I., Martinez, J. L., and Richard, C. A. Assessing creativity with divergent thinking tasks: Exploring the reliability and validity of new subjective scoring methods. Psychology of Aesthetics, Creativity, and the Arts 2, 2 (May 2008), 68–85. https://doi.org/10.1037/1931-3896.2.2.68.
+- Patterson, J. D., Merseal, H. M., Johnson, D. R., Agnoli, S., Baas, M., Baker, B. S., Barbot, B., Benedek, M., Borhani, K., Chen, Q., et al. Multilingual semantic distance: Automatic verbal creativity assessment in many languages. Psychology of Aesthetics, Creativity, and the Arts 17, 4 (August 2023), 495–507. https://doi.org/10.1037/aca0000618.
