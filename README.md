@@ -41,7 +41,7 @@
 
 ### Flow Experience
 
-- **描述：** 評估參與者在遊玩兩種版本 Minecraft 時的心流體驗。
+- **描述：** 評估參與者在遊玩兩種版本 Minecraft 時的心流體驗，以分析不同遊戲機制造成的影響。
 - **測量工具：** 請參考 [Measures/Flow_Experience/使用說明.md](Measures/Flow_Experience/使用說明.md) 文件，內含所使用量表的介紹和完整題目。
 - **文獻來源：**
   - Rahimi, S., Walker, J. T., Lin-Lipsmeyer, L., and Shin, J. Toward defining and assessing creativity in sandbox games. Creativity Research Journal 36, 2 (January 2024), 194–212. https://doi.org/10.1080/10400419.2022.2156477.
