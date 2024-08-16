@@ -53,7 +53,7 @@
 
 ### Motion Sickness Susceptibility
 
-- **描述：** 評估參與者在遊玩兩種版本 Minecraft 時的心流體驗，以分析不同遊戲機制造成的影響。
+- **描述：** 評估報名者對視覺動暈症的敏感度，以篩選適合遊玩 Minecraft 的人。
 - **測量工具：** 請參考 [Measures/Flow_Experience/使用說明.md](Measures/Flow_Experience/使用說明.md) 文件，內含所使用量表的介紹和完整題目。
 - **文獻來源：**
   - Jackson, S. A., and Marsh, H. W. Development and validation of a scale to measure optimal experience: The flow state scale. Journal of Sport and Exercise Psychology 18, 1 (January 1996), 17–35. https://doi.org/10.1123/jsep.18.1.17.
