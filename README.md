@@ -33,8 +33,8 @@
 
 ### Creative Production
 
-- **描述：** 評估參與者的收斂思維能力，以分析兩種版本 Minecraft 對創意思考的影響和建築創造力指標的效標關聯效度。
-- **測量工具：** 請參考 [Measures/Convergent_Thinking/使用說明.md](Measures/Convergent_Thinking/使用說明.md) 文件，內含所使用測驗的介紹和完整題目。
+- **描述：** 評估參與者遊玩兩種版本 Minecraft 時的創意產品製作能力，以分析過去文獻中的建築創造力指標與傳統創意思考測驗分數的相關性。
+- **測量工具：** 請參考 [Measures/Creative_Production/使用說明.md](Measures/Creative_Production/使用說明.md) 文件，內含所使用的評分指標和評分方式。
 - **文獻來源：**
   - Wu, C.-L., and Chen, H.-C. Normative data for chinese compound remote associate problems. Behavior Research Methods 49, 6 (December 2017), 2163–2172. https://doi.org/10.3758/s13428-016-0849-3.
   - Blanco-Herrera, J. A., Gentile, D. A., and Rokkum, J. N. Video games can increase creativity, but with caveats. Creativity Research Journal 31, 2 (June 2019), 119–131. https://doi.org/10.1080/10400419.2019.1594524.
