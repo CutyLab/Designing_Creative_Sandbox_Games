@@ -33,7 +33,7 @@
 
 ### Creative Production
 
-- **描述：** 評估參與者遊玩兩種版本 Minecraft 時的創意產品製作能力，以分析過去文獻中的建築創造力指標與傳統創意思考測驗分數的相關性。
+- **描述：** 評估參與者在遊玩兩種版本 Minecraft 時的創意產品製作能力，以分析文獻中的 Minecraft 建築創造力指標與傳統創意思考測驗分數的相關性。
 - **測量工具：** 請參考 [Measures/Creative_Production/使用說明.md](Measures/Creative_Production/使用說明.md) 文件，內含所使用的評分指標和評分方式。
 - **文獻來源：**
   - Wu, C.-L., and Chen, H.-C. Normative data for chinese compound remote associate problems. Behavior Research Methods 49, 6 (December 2017), 2163–2172. https://doi.org/10.3758/s13428-016-0849-3.
