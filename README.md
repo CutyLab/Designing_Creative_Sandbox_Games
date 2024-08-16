@@ -58,7 +58,7 @@
 - **文獻來源：**
   - Golding, J. F., Rafiq, A., and Keshavarz, B. Predicting individual susceptibility to visually induced motion sickness by questionnaire. Frontiers in Virtual Reality 2 (February 2021). https://doi.org/10.3389/frvir.2021.576871.
 
-### Gaming Habits and Experience
+### Gaming Habits and Experiences
 
 - **描述：** 評估報名者對視覺動暈症的敏感度，以篩選出較能順利進行實驗的人。
 - **測量工具：** 請參考 [Measures/Motion_Sickness_Susceptibility/使用說明.md](Measures/Motion_Sickness_Susceptibility/使用說明.md) 文件，內含所使用問卷的介紹和完整題目。
