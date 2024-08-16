@@ -36,5 +36,4 @@
 - **描述：** 評估參與者在遊玩兩種版本 Minecraft 時的創意產品製作能力，以分析文獻中的 Minecraft 建築創造力指標與傳統創意思考測驗分數的相關性。
 - **測量工具：** 請參考 [Measures/Creative_Production/使用說明.md](Measures/Creative_Production/使用說明.md) 文件，內含所使用的評分指標和評分方式。
 - **文獻來源：**
-  - Wu, C.-L., and Chen, H.-C. Normative data for chinese compound remote associate problems. Behavior Research Methods 49, 6 (December 2017), 2163–2172. https://doi.org/10.3758/s13428-016-0849-3.
-  - Blanco-Herrera, J. A., Gentile, D. A., and Rokkum, J. N. Video games can increase creativity, but with caveats. Creativity Research Journal 31, 2 (June 2019), 119–131. https://doi.org/10.1080/10400419.2019.1594524.
+  - Rahimi, S., Walker, J. T., Lin-Lipsmeyer, L., and Shin, J. Toward defining and assessing creativity in sandbox games. Creativity Research Journal 36, 2 (January 2024), 194–212. https://doi.org/10.1080/10400419.2022.2156477.
