@@ -54,7 +54,6 @@
 ### Motion Sickness Susceptibility
 
 - **描述：** 評估報名者對視覺動暈症的易感性，以篩選出較能順利進行實驗的人。
-- **測量工具：** 請參考 [Measures/Motion_Sickness_Susceptibility/使用說明.md](Measures/Motion_Sickness_Susceptibility/使用說明.md) 文件，內含所使用量表的介紹和完整題目。
+- **測量工具：** 請參考 [Measures/Motion_Sickness_Susceptibility/使用說明.md](Measures/Motion_Sickness_Susceptibility/使用說明.md) 文件，內含所使用問卷的介紹和完整題目。
 - **文獻來源：**
-  - Jackson, S. A., and Marsh, H. W. Development and validation of a scale to measure optimal experience: The flow state scale. Journal of Sport and Exercise Psychology 18, 1 (January 1996), 17–35. https://doi.org/10.1123/jsep.18.1.17.
-  - Klarkowski, M., Johnson, D., Wyeth, P., Smith, S., and Phillips, C. Operationalising and measuring flow in video games. In Proceedings of the Annual Meeting of the Australian Special Interest Group for Computer Human Interaction (December 2015), pp. 114–118. https://doi.org/10.1145/2838739.2838826.
+  - Golding, J. F., Rafiq, A., and Keshavarz, B. Predicting individual susceptibility to visually induced motion sickness by questionnaire. Frontiers in Virtual Reality 2 (February 2021). https://doi.org/10.3389/frvir.2021.576871.
