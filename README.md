@@ -68,8 +68,8 @@
 
 ### Other Variables
 
-- **描述：** 調查參與者的日常遊戲習慣和 Minecraft 相關經驗，以比較不同實驗條件下參與者的基線特徵。
-- **測量工具：** 請參考 [Measures/Gaming_Habits_and_Experiences/問卷內容.pdf](Measures/Gaming_Habits_and_Experiences/問卷內容.pdf) 文件，內含所使用問卷的完整內容。
+- **描述：** 本研究還收集了參與者的人格特質資料以及他們遊玩兩種版本 Minecraft 時的內在動機，但這些數據後來並未被使用。
+- **測量工具：** 請參考 [Measures/Other_Variables/問卷內容.pdf](Measures/Other_Variables/問卷內容.pdf) 文件，內含所使用問卷的完整內容。
 - **文獻來源：**
   - Rahimi, S., and Shute, V. The effects of video games on creativity: A systematic review. The Cambridge Handbook of Lifespan Development of Creativity (November 2021), 368–392. https://doi.org/10.1017/9781108755726.021.
   - Fan, Y., Lane, H. C., and Delialioğlu, Ö. Open-ended tasks promote creativity in minecraft. Educational Technology & Society 25, 2 (April 2022), 105–116. https://www.jstor.org/stable/48660127.
