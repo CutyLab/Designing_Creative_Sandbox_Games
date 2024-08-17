@@ -61,6 +61,6 @@
 ### Gaming Habits and Experiences
 
 - **描述：** 調查參與者的日常遊戲習慣和 Minecraft 相關經驗，以比較不同實驗條件下參與者的基線特徵。
-- **測量工具：** 請參考 [Measures/Motion_Sickness_Susceptibility/使用說明.md](Measures/Motion_Sickness_Susceptibility/使用說明.md) 文件，內含所使用問卷的介紹和完整題目。
+- **測量工具：** 請參考 [Measures/Gaming_Habits_and_Experiences/問卷內容.pdf](Measures/Gaming_Habits_and_Experiences/問卷內容.pdf) 文件，內含所使用問卷的完整內容。
 - **文獻來源：**
-  - Golding, J. F., Rafiq, A., and Keshavarz, B. Predicting individual susceptibility to visually induced motion sickness by questionnaire. Frontiers in Virtual Reality 2 (February 2021). https://doi.org/10.3389/frvir.2021.576871.
+  - Fan, Y., Lane, H. C., and Delialioğlu, Ö. Open-ended tasks promote creativity in minecraft. Educational Technology & Society 25, 2 (April 2022), 105–116. https://www.jstor.org/stable/48660127.
