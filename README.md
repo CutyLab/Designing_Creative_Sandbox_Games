@@ -68,7 +68,7 @@
 
 ### Other Variables
 
-- **描述：** 本研究還收集了參與者的人格特質資料以及他們遊玩兩種版本 Minecraft 時的內在動機，但這些數據後來並未被使用。
+- **描述：** 本研究還調查了參與者的人格特質和他們遊玩兩種版本 Minecraft 時的內在動機，但這些數據後來未被使用。
 - **測量工具：** 請參考 [Measures/Other_Variables/問卷內容.pdf](Measures/Other_Variables/問卷內容.pdf) 文件，內含所使用問卷的完整內容。
 - **文獻來源：**
   - Rahimi, S., and Shute, V. The effects of video games on creativity: A systematic review. The Cambridge Handbook of Lifespan Development of Creativity (November 2021), 368–392. https://doi.org/10.1017/9781108755726.021.
