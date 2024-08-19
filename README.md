@@ -9,6 +9,9 @@
 
 ### 基本介紹
 
+- **描述：** 評估參與者對不同遊戲機制的偏好，以分析其是否調節兩種版本 Minecraft 造成的影響。
+- **測量工具：** 請參考 [Measures/Player_Traits/使用說明.md](Measures/Player_Traits/使用說明.md) 文件，內含所使用量表的介紹和完整題目。
+
 ### 遊戲設置
 
 ## Measures
