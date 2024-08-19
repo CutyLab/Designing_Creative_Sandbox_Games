@@ -7,7 +7,9 @@
 
 ## Minecraft Customization
 
-### 123
+### 基本介紹
+
+### 遊戲設置
 
 ## Measures
 
