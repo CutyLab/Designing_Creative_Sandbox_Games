@@ -84,7 +84,7 @@
 
 ## Data Analysis
 
-### Fundamentals
+### Raw Data
 
-- **描述：** 關於如何使用種子存檔重現實驗所使用的遊戲世界。
+- **描述：** 本研究所蒐集的原始數據。
 - **操作說明：** 請參考 [Minecraft_Customization/Fundamentals/重現流程.pdf](Minecraft_Customization/Fundamentals/重現流程.pdf) 文件，內含詳細的步驟說明。
