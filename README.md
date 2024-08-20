@@ -86,6 +86,11 @@
 
 ## Folder Structure
 
-- Measures
 - Minecraft_Customization
+  - Fundamentals
+    - 重現流程.pdf
+  - Game_Design
+    - 系統建構.pptx
+- Measures
+  - 123
 - Data_Analysis
