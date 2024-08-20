@@ -81,3 +81,11 @@
 - **文獻來源：**
   - Zhang, X., Wang, M.-C., He, L., Jie, L., and Deng, J. The development and psychometric evaluation of the chinese big five personality inventory-15. PLOS ONE 14, 8 (August 2019). https://doi.org/10.1371/journal.pone.0221621.
   - Self-Determination Theory. Intrinsic motivation inventory (imi). https://selfdeterminationtheory.org/intrinsic-motivation-inventory/
+
+## Data Analysis
+
+## Folder Structure
+
+- Measures
+- Minecraft_Customization
+- Data_Analysis
