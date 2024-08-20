@@ -7,36 +7,36 @@ output: html_notebook
 
 ```{r}
 # 匯入玩家特質量表各維度的回答資料
-pt_so <- read.csv("C:/Users/David/Desktop/實驗資料分析/量表信度/玩家特質/Social Orientation.csv", stringsAsFactors = TRUE)
-pt_ao <- read.csv("C:/Users/David/Desktop/實驗資料分析/量表信度/玩家特質/Aesthetic Orientation.csv", stringsAsFactors = TRUE)
-pt_no <- read.csv("C:/Users/David/Desktop/實驗資料分析/量表信度/玩家特質/Narrative Orientation.csv", stringsAsFactors = TRUE)
-pt_co <- read.csv("C:/Users/David/Desktop/實驗資料分析/量表信度/玩家特質/Challenge Orientation.csv", stringsAsFactors = TRUE)
-pt_go <- read.csv("C:/Users/David/Desktop/實驗資料分析/量表信度/玩家特質/Goal Orientation.csv", stringsAsFactors = TRUE)
+pt_so <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/玩家特質量表/社交.csv", stringsAsFactors = TRUE)
+pt_ao <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/玩家特質量表/美學.csv", stringsAsFactors = TRUE)
+pt_no <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/玩家特質量表/敘事.csv", stringsAsFactors = TRUE)
+pt_co <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/玩家特質量表/挑戰.csv", stringsAsFactors = TRUE)
+pt_go <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/玩家特質量表/目標.csv", stringsAsFactors = TRUE)
 ```
 
 ```{r}
-# 計算玩家特質量表中社交取向的內部一致性
+# 計算玩家特質量表中社交傾向的內部一致性
 library(psych)
 alpha(pt_so)
 ```
 
 ```{r}
-# 計算玩家特質量表中美感取向的內部一致性
+# 計算玩家特質量表中美學傾向的內部一致性
 alpha(pt_ao)
 ```
 
 ```{r}
-# 計算玩家特質量表中敘事取向的內部一致性
+# 計算玩家特質量表中敘事傾向的內部一致性
 alpha(pt_no)
 ```
 
 ```{r}
-# 計算玩家特質量表中挑戰取向的內部一致性
+# 計算玩家特質量表中挑戰傾向的內部一致性
 alpha(pt_co)
 ```
 
 ```{r}
-# 計算玩家特質量表中目標取向的內部一致性
+# 計算玩家特質量表中目標傾向的內部一致性
 alpha(pt_go)
 ```
 
@@ -44,12 +44,12 @@ alpha(pt_go)
 
 ```{r}
 # 匯入替代用途測驗各物品的獨創性評分
-aut_pb <- read.csv("C:/Users/David/Desktop/實驗資料分析/Alternative Uses Test - 試評分/塑膠袋.csv", stringsAsFactors = TRUE)
-aut_hd <- read.csv("C:/Users/David/Desktop/實驗資料分析/Alternative Uses Test - 試評分/吹風機.csv", stringsAsFactors = TRUE)
-aut_c <- read.csv("C:/Users/David/Desktop/實驗資料分析/Alternative Uses Test - 試評分/硬幣.csv", stringsAsFactors = TRUE)
-aut_tp <- read.csv("C:/Users/David/Desktop/實驗資料分析/Alternative Uses Test - 試評分/衛生紙.csv", stringsAsFactors = TRUE)
-aut_ch <- read.csv("C:/Users/David/Desktop/實驗資料分析/Alternative Uses Test - 試評分/衣架.csv", stringsAsFactors = TRUE)
-aut_t <- read.csv("C:/Users/David/Desktop/實驗資料分析/Alternative Uses Test - 試評分/牙膏.csv", stringsAsFactors = TRUE)
+aut_pb <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Alternate_Uses_Test/塑膠袋.csv", stringsAsFactors = TRUE)
+aut_hd <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Alternate_Uses_Test/吹風機.csv", stringsAsFactors = TRUE)
+aut_c <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Alternate_Uses_Test/硬幣.csv", stringsAsFactors = TRUE)
+aut_tp <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Alternate_Uses_Test/衛生紙.csv", stringsAsFactors = TRUE)
+aut_ch <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Alternate_Uses_Test/衣架.csv", stringsAsFactors = TRUE)
+aut_t <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Alternate_Uses_Test/牙膏.csv", stringsAsFactors = TRUE)
 ```
 
 ```{r}
@@ -66,18 +66,17 @@ icc(aut_t, model = "twoway", type = "agreement", unit = "average")
 ### **Creative Production**
 
 ```{r}
-# 匯入心流組Minecraft建築各項創意指標的評分資料
-fm_ap <- read.csv("C:/Users/David/Desktop/實驗資料分析/Minecraft Building Task/Flow/Appropriateness.csv", stringsAsFactors = TRUE)
-fm_o <- read.csv("C:/Users/David/Desktop/實驗資料分析/Minecraft Building Task/Flow/Originality.csv", stringsAsFactors = TRUE)
-fm_ae <- read.csv("C:/Users/David/Desktop/實驗資料分析/Minecraft Building Task/Flow/Aesthetics.csv", stringsAsFactors = TRUE)
-fm_s <- read.csv("C:/Users/David/Desktop/實驗資料分析/Minecraft Building Task/Flow/Surprise.csv", stringsAsFactors = TRUE)
-fm_e <- read.csv("C:/Users/David/Desktop/實驗資料分析/Minecraft Building Task/Flow/Elaboration.csv", stringsAsFactors = TRUE)
-fm_oc <- read.csv("C:/Users/David/Desktop/實驗資料分析/Minecraft Building Task/Flow/Overall Creativity.csv", stringsAsFactors = TRUE)
+# 匯入心流組 Minecraft 建築各項創意指標的評分資料
+fm_ap <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Minecraft創意建造任務/Flow/適當性.csv", stringsAsFactors = TRUE)
+fm_o <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Minecraft創意建造任務/Flow/獨創性.csv", stringsAsFactors = TRUE)
+fm_ae <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Minecraft創意建造任務/Flow/美感.csv", stringsAsFactors = TRUE)
+fm_s <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Minecraft創意建造任務/Flow/驚喜度.csv", stringsAsFactors = TRUE)
+fm_e <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Minecraft創意建造任務/Flow/精細度.csv", stringsAsFactors = TRUE)
+fm_oc <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Minecraft創意建造任務/Flow/整體創造力.csv", stringsAsFactors = TRUE)
 ```
 
 ```{r}
-# 計算心流組Minecraft建築各項創意指標的評分者間信度
-library(irr)
+# 計算心流組 Minecraft 建築各項創意指標的評分者間信度
 icc(fm_ap, model = "twoway", type = "agreement", unit = "average")
 icc(fm_o, model = "twoway", type = "agreement", unit = "average")
 icc(fm_ae, model = "twoway", type = "agreement", unit = "average")
@@ -87,18 +86,17 @@ icc(fm_oc, model = "twoway", type = "agreement", unit = "average")
 ```
 
 ```{r}
-# 匯入原始組Minecraft建築各項創意指標的評分資料
-bm_ap <- read.csv("C:/Users/David/Desktop/實驗資料分析/Minecraft Building Task/Basic/Appropriateness.csv", stringsAsFactors = TRUE)
-bm_o <- read.csv("C:/Users/David/Desktop/實驗資料分析/Minecraft Building Task/Basic/Originality.csv", stringsAsFactors = TRUE)
-bm_ae <- read.csv("C:/Users/David/Desktop/實驗資料分析/Minecraft Building Task/Basic/Aesthetics.csv", stringsAsFactors = TRUE)
-bm_s <- read.csv("C:/Users/David/Desktop/實驗資料分析/Minecraft Building Task/Basic/Surprise.csv", stringsAsFactors = TRUE)
-bm_e <- read.csv("C:/Users/David/Desktop/實驗資料分析/Minecraft Building Task/Basic/Elaboration.csv", stringsAsFactors = TRUE)
-bm_oc <- read.csv("C:/Users/David/Desktop/實驗資料分析/Minecraft Building Task/Basic/Overall Creativity.csv", stringsAsFactors = TRUE)
+# 匯入原始組 Minecraft 建築各項創意指標的評分資料
+bm_ap <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Minecraft創意建造任務/Basic/適當性.csv", stringsAsFactors = TRUE)
+bm_o <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Minecraft創意建造任務/Basic/獨創性.csv", stringsAsFactors = TRUE)
+bm_ae <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Minecraft創意建造任務/Basic/美感.csv", stringsAsFactors = TRUE)
+bm_s <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Minecraft創意建造任務/Basic/驚喜度.csv", stringsAsFactors = TRUE)
+bm_e <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Minecraft創意建造任務/Basic/精細度.csv", stringsAsFactors = TRUE)
+bm_oc <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Minecraft創意建造任務/Basic/整體創造力.csv", stringsAsFactors = TRUE)
 ```
 
 ```{r}
-# 計算原始組Minecraft建築各項創意指標的評分者間信度
-library(irr)
+# 計算原始組 Minecraft 建築各項創意指標的評分者間信度
 icc(bm_ap, model = "twoway", type = "agreement", unit = "average")
 icc(bm_o, model = "twoway", type = "agreement", unit = "average")
 icc(bm_ae, model = "twoway", type = "agreement", unit = "average")
@@ -111,15 +109,15 @@ icc(bm_oc, model = "twoway", type = "agreement", unit = "average")
 
 ```{r}
 # 匯入心流狀態量表各維度的回答資料
-fss_b <- read.csv("C:/Users/David/Desktop/實驗資料分析/量表信度/心流體驗/Balance.csv", stringsAsFactors = TRUE)
-fss_g <- read.csv("C:/Users/David/Desktop/實驗資料分析/量表信度/心流體驗/Goal.csv", stringsAsFactors = TRUE)
-fss_f <- read.csv("C:/Users/David/Desktop/實驗資料分析/量表信度/心流體驗/Feedback.csv", stringsAsFactors = TRUE)
-fss_m <- read.csv("C:/Users/David/Desktop/實驗資料分析/量表信度/心流體驗/Merge.csv", stringsAsFactors = TRUE)
-fss_cc <- read.csv("C:/Users/David/Desktop/實驗資料分析/量表信度/心流體驗/Concentration.csv", stringsAsFactors = TRUE)
-fss_ct <- read.csv("C:/Users/David/Desktop/實驗資料分析/量表信度/心流體驗/Control.csv", stringsAsFactors = TRUE)
-fss_l <- read.csv("C:/Users/David/Desktop/實驗資料分析/量表信度/心流體驗/Loss.csv", stringsAsFactors = TRUE)
-fss_t <- read.csv("C:/Users/David/Desktop/實驗資料分析/量表信度/心流體驗/Time.csv", stringsAsFactors = TRUE)
-fss_a <- read.csv("C:/Users/David/Desktop/實驗資料分析/量表信度/心流體驗/Autotelic.csv", stringsAsFactors = TRUE)
+fss_b <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Flow_State_Scale/Balance.csv", stringsAsFactors = TRUE)
+fss_g <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Flow_State_Scale/Goal.csv", stringsAsFactors = TRUE)
+fss_f <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Flow_State_Scale/Feedback.csv", stringsAsFactors = TRUE)
+fss_m <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Flow_State_Scale/Merging.csv", stringsAsFactors = TRUE)
+fss_cc <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Flow_State_Scale/Concentration.csv", stringsAsFactors = TRUE)
+fss_ct <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Flow_State_Scale/Control.csv", stringsAsFactors = TRUE)
+fss_l <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Flow_State_Scale/Loss.csv", stringsAsFactors = TRUE)
+fss_t <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Flow_State_Scale/Time.csv", stringsAsFactors = TRUE)
+fss_a <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/Flow_State_Scale/Autotelic.csv", stringsAsFactors = TRUE)
 ```
 
 ```{r}
