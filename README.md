@@ -87,7 +87,7 @@
 ### Raw Data
 
 - **描述：** 本研究所蒐集的各項原始數據。
-- **檔案說明：** 請參考 [Data_Analysis/Raw_Data/原始數據.md](Data_Analysis/Raw_Data/原始數據.md) 文件，內含各檔案所對應的測量項目。
+- **檔案說明：** 請參考 [Data_Analysis/Raw_Data/原始數據.md](Data_Analysis/Raw_Data/原始數據.md) 文件，內含各檔案所對應的測量變數。
 
 ### R Code
 
