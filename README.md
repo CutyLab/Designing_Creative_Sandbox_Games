@@ -84,13 +84,7 @@
 
 ## Data Analysis
 
-## Folder Structure
+### Fundamentals
 
-- Minecraft_Customization
-  - Fundamentals
-    - 重現流程.pdf
-  - Game_Design
-    - 系統建構.pptx
-- Measures
-  - 123
-- Data_Analysis
+- **描述：** 關於如何使用種子存檔重現實驗所使用的遊戲世界。
+- **操作說明：** 請參考 [Minecraft_Customization/Fundamentals/重現流程.pdf](Minecraft_Customization/Fundamentals/重現流程.pdf) 文件，內含詳細的步驟說明。
