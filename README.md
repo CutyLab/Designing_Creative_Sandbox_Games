@@ -97,4 +97,4 @@
 ### Minecraft Saves and Videos
 
 - **描述：** 參與者的創作成品原始檔和實驗過程錄影。
-- **檔案說明：** 相關檔案保存在白色公用電腦的 "D:\Designing_Creative_Sandbox_Games\實驗資料分析" 當中。
+- **檔案說明：** 所有檔案保存在白色公用電腦的 "D:\Designing_Creative_Sandbox_Games\Minecraft_Saves_and_Videos" 資料夾中。
