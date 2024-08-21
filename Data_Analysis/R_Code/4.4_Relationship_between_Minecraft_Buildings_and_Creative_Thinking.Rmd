@@ -5,13 +5,13 @@ output: html_notebook
 
 ```{r}
 # 匯入實驗資料
-data <- read.csv("C:/Users/David/Desktop/實驗資料分析/實驗資料.csv", stringsAsFactors = TRUE)
+data <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/實驗資料.csv", stringsAsFactors = TRUE)
 ```
 
 ### **Intercorrelation of Minecraft Building Facets**
 
 ```{r}
-# 拆分出兩組樣本的資料
+# 提取兩組樣本的資料並分別儲存
 flow <- data[data$Experimental_Condition == "心流", ]
 basic <- data[data$Experimental_Condition == "原始", ]
 ```
@@ -131,22 +131,22 @@ shapiro.test(basic$Elaboration)
 ```
 
 ```{r}
-# 針對心流組的資料，檢驗Minecraft建築的各項創意指標間是否有相關性
+# 針對心流組的資料，檢驗 Minecraft 建築的各項創意指標間是否有相關性
 library(psych)
 print(corTest(data[data$Experimental_Condition == "心流", 35:40], method = "spearman")$stars, quote = FALSE)
-result <- corTest(data[data$Experimental_Condition == "心流", 35:40], method = "spearman")
 ```
 
 ```{r}
-# 針對原始組的資料，檢驗Minecraft建築的各項創意指標間是否有相關性
+# 針對原始組的資料，檢驗 Minecraft 建築的各項創意指標間是否有相關性
 print(corTest(data[data$Experimental_Condition == "原始", 35:40], method = "spearman")$stars, quote = FALSE)
-result <- corTest(data[data$Experimental_Condition == "原始", 35:40], method = "spearman")
 ```
 
 ### **Divergent Thinking**
 
+#### **Fluency**
+
 ```{r}
-# 針對心流組的資料，檢驗實驗前的發散思維流暢性與Minecraft建築創意是否有相關性（NO）
+# 針對心流組的資料，檢驗實驗前的發散思維流暢性與 Minecraft 建築創意是否有相關性（NO）
 cor.test(flow$AUT_Fluency_Pretest, flow$Overall_Creativity, alternative = "two.sided", method = "spearman")
 cor.test(flow$AUT_Fluency_Pretest, flow$Appropriateness, alternative = "two.sided", method = "spearman")
 cor.test(flow$AUT_Fluency_Pretest, flow$Originality, alternative = "two.sided", method = "spearman")
@@ -156,7 +156,7 @@ cor.test(flow$AUT_Fluency_Pretest, flow$Elaboration, alternative = "two.sided", 
 ```
 
 ```{r}
-# 針對原始組的資料，檢驗實驗前的發散思維流暢性與Minecraft建築創意是否有相關性（NO）
+# 針對原始組的資料，檢驗實驗前的發散思維流暢性與 Minecraft 建築創意是否有相關性（NO）
 cor.test(basic$AUT_Fluency_Pretest, basic$Overall_Creativity, alternative = "two.sided", method = "spearman")
 cor.test(basic$AUT_Fluency_Pretest, basic$Appropriateness, alternative = "two.sided", method = "spearman")
 cor.test(basic$AUT_Fluency_Pretest, basic$Originality, alternative = "two.sided", method = "spearman")
@@ -165,8 +165,10 @@ cor.test(basic$AUT_Fluency_Pretest, basic$Surprise, alternative = "two.sided", m
 cor.test(basic$AUT_Fluency_Pretest, basic$Elaboration, alternative = "two.sided", method = "spearman")
 ```
 
+#### **Originality**
+
 ```{r}
-# 針對心流組的資料，檢驗實驗前的發散思維獨創性與Minecraft建築創意是否有相關性（NO）
+# 針對心流組的資料，檢驗實驗前的發散思維獨創性與 Minecraft 建築創意是否有相關性（NO）
 cor.test(flow$AUT_Originality_Pretest, flow$Overall_Creativity, alternative = "two.sided", method = "spearman")
 cor.test(flow$AUT_Originality_Pretest, flow$Appropriateness, alternative = "two.sided", method = "spearman")
 cor.test(flow$AUT_Originality_Pretest, flow$Originality, alternative = "two.sided", method = "spearman")
@@ -176,7 +178,7 @@ cor.test(flow$AUT_Originality_Pretest, flow$Elaboration, alternative = "two.side
 ```
 
 ```{r}
-# 針對原始組的資料，檢驗實驗前的發散思維獨創性與Minecraft建築創意是否有相關性（除了美感之外的每一項）
+# 針對原始組的資料，檢驗實驗前的發散思維獨創性與 Minecraft 建築創意是否有相關性（除了美感之外的每一項都有）
 cor.test(basic$AUT_Originality_Pretest, basic$Overall_Creativity, alternative = "two.sided", method = "spearman")
 cor.test(basic$AUT_Originality_Pretest, basic$Appropriateness, alternative = "two.sided", method = "spearman")
 cor.test(basic$AUT_Originality_Pretest, basic$Originality, alternative = "two.sided", method = "spearman")
@@ -188,7 +190,7 @@ cor.test(basic$AUT_Originality_Pretest, basic$Elaboration, alternative = "two.si
 ### **Convergent Thinking**
 
 ```{r}
-# 針對心流組的資料，檢驗實驗前的收斂思維能力與Minecraft建築創意是否有相關性（NO）
+# 針對心流組的資料，檢驗實驗前的收斂思維能力與 Minecraft 建築創意是否有相關性（NO）
 cor.test(flow$RAT_Pretest, flow$Overall_Creativity, alternative = "two.sided", method = "spearman")
 cor.test(flow$RAT_Pretest, flow$Appropriateness, alternative = "two.sided", method = "spearman")
 cor.test(flow$RAT_Pretest, flow$Originality, alternative = "two.sided", method = "spearman")
@@ -198,7 +200,7 @@ cor.test(flow$RAT_Pretest, flow$Elaboration, alternative = "two.sided", method =
 ```
 
 ```{r}
-# 針對原始組的資料，檢驗實驗前的收斂思維能力與Minecraft建築創意是否有相關性（NO）
+# 針對原始組的資料，檢驗實驗前的收斂思維能力與 Minecraft 建築創意是否有相關性（NO）
 cor.test(basic$RAT_Pretest, basic$Overall_Creativity, alternative = "two.sided", method = "spearman")
 cor.test(basic$RAT_Pretest, basic$Appropriateness, alternative = "two.sided", method = "spearman")
 cor.test(basic$RAT_Pretest, basic$Originality, alternative = "two.sided", method = "spearman")
