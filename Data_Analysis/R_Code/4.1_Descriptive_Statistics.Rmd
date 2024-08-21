@@ -5,7 +5,7 @@ output: html_notebook
 
 ```{r}
 # 匯入實驗資料
-data <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/實驗資料.csv", stringsAsFactors = TRUE)
+data <- read.csv("C:/Users/David/Desktop/Designing_Creative_Sandbox_Games/Data_Analysis/Raw_Data/實驗資料.csv", stringsAsFactors = TRUE)
 ```
 
 ### **Baseline Comparisons**
