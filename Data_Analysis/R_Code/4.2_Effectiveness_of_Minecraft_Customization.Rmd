@@ -5,10 +5,12 @@ output: html_notebook
 
 ```{r}
 # 匯入實驗資料
-data <- read.csv("C:/Users/David/Desktop/實驗資料分析/實驗資料.csv", stringsAsFactors = TRUE)
+data <- read.csv("C:/Users/David/Desktop/Data_Analysis/Raw_Data/實驗資料.csv", stringsAsFactors = TRUE)
 ```
 
 ### **Flow Experience**
+
+#### **Overall Flow**
 
 ```{r}
 # 觀察兩組樣本的整體心流分布
@@ -34,13 +36,7 @@ shapiro.test(data[data$Experimental_Condition == "原始", "Flow_Total"])
 wilcox.test(Flow_Total ~ Experimental_Condition, data = data)
 ```
 
-```{r}
-# 繪製兩組樣本的整體心流箱型圖
-flow_f <- data[data$Experimental_Condition == "心流", "Flow_Total"]
-basic_f <- data[data$Experimental_Condition == "原始", "Flow_Total"]
-all_f <- list(flow_f = flow_f, basic_f = basic_f)
-boxplot(all_f)
-```
+#### **Challenge-Skill Balance**
 
 ```{r}
 # 觀察兩組樣本的挑戰與技能的平衡分布
@@ -66,6 +62,8 @@ shapiro.test(data[data$Experimental_Condition == "原始", "Flow_Balance"])
 wilcox.test(Flow_Balance ~ Experimental_Condition, data = data)
 ```
 
+#### **Clear Goals**
+
 ```{r}
 # 觀察兩組樣本的清晰的目標分布
 mean(data[data$Experimental_Condition == "心流", "Flow_Goal"])
@@ -90,13 +88,7 @@ shapiro.test(data[data$Experimental_Condition == "原始", "Flow_Goal"])
 wilcox.test(Flow_Goal ~ Experimental_Condition, data = data)
 ```
 
-```{r}
-# 繪製兩組樣本的清晰的目標箱型圖
-flow_f <- data[data$Experimental_Condition == "心流", "Flow_Goal"]
-basic_f <- data[data$Experimental_Condition == "原始", "Flow_Goal"]
-all_f <- list(flow_f = flow_f, basic_f = basic_f)
-boxplot(all_f)
-```
+#### **Unambiguous Feedback**
 
 ```{r}
 # 觀察兩組樣本的明確的回饋分布
@@ -122,6 +114,8 @@ shapiro.test(data[data$Experimental_Condition == "原始", "Flow_Feedback"])
 wilcox.test(Flow_Feedback ~ Experimental_Condition, data = data)
 ```
 
+#### **Action-Awareness Merging**
+
 ```{r}
 # 觀察兩組樣本的行動與意識的融合分布
 mean(data[data$Experimental_Condition == "心流", "Flow_Merge"])
@@ -136,7 +130,7 @@ qqline(data[data$Experimental_Condition == "原始", "Flow_Merge"])
 ```
 
 ```{r}
-# 檢驗兩組樣本的行動與意識的融合是否為常態分布（NO/MARGINAL）
+# 檢驗兩組樣本的行動與意識的融合是否為常態分布（NO）
 shapiro.test(data[data$Experimental_Condition == "心流", "Flow_Merge"])
 shapiro.test(data[data$Experimental_Condition == "原始", "Flow_Merge"])
 ```
@@ -145,6 +139,8 @@ shapiro.test(data[data$Experimental_Condition == "原始", "Flow_Merge"])
 # 檢驗兩組樣本的行動與意識的融合中位數是否相同（YES）
 wilcox.test(Flow_Merge ~ Experimental_Condition, data = data)
 ```
+
+#### **Concentration on Task at Hand**
 
 ```{r}
 # 觀察兩組樣本的專注於手邊的任務分布
@@ -170,6 +166,8 @@ shapiro.test(data[data$Experimental_Condition == "原始", "Flow_Concentration"]
 wilcox.test(Flow_Concentration ~ Experimental_Condition, data = data)
 ```
 
+#### **Sense of Control**
+
 ```{r}
 # 觀察兩組樣本的控制感分布
 mean(data[data$Experimental_Condition == "心流", "Flow_Control"])
@@ -194,13 +192,7 @@ shapiro.test(data[data$Experimental_Condition == "原始", "Flow_Control"])
 wilcox.test(Flow_Control ~ Experimental_Condition, data = data)
 ```
 
-```{r}
-# 繪製兩組樣本的控制感箱型圖
-flow_f <- data[data$Experimental_Condition == "心流", "Flow_Control"]
-basic_f <- data[data$Experimental_Condition == "原始", "Flow_Control"]
-all_f <- list(flow_f = flow_f, basic_f = basic_f)
-boxplot(all_f)
-```
+#### **Loss of Self-Consciousness**
 
 ```{r}
 # 觀察兩組樣本的自我意識的喪失分布
@@ -226,6 +218,8 @@ shapiro.test(data[data$Experimental_Condition == "原始", "Flow_Loss"])
 wilcox.test(Flow_Loss ~ Experimental_Condition, data = data)
 ```
 
+#### **Transformation of Time**
+
 ```{r}
 # 觀察兩組樣本的時間的轉變分布
 mean(data[data$Experimental_Condition == "心流", "Flow_Time"])
@@ -249,6 +243,8 @@ shapiro.test(data[data$Experimental_Condition == "原始", "Flow_Time"])
 # 檢驗兩組樣本的時間的轉變中位數是否相同（YES）
 wilcox.test(Flow_Time ~ Experimental_Condition, data = data)
 ```
+
+#### **Autotelic Experience**
 
 ```{r}
 # 觀察兩組樣本的自得其樂的體驗分布
@@ -275,52 +271,10 @@ wilcox.test(Flow_Autotelic ~ Experimental_Condition, data = data)
 ```
 
 ```{r}
-# 繪製兩組樣本的自得其樂的體驗箱型圖
-flow_f <- data[data$Experimental_Condition == "心流", "Flow_Autotelic"]
-basic_f <- data[data$Experimental_Condition == "原始", "Flow_Autotelic"]
-all_f <- list(flow_f = flow_f, basic_f = basic_f)
-boxplot(all_f)
-```
-
-```{r}
-# 拆分出兩組樣本的資料
-flow <- data[data$Experimental_Condition == "心流", ]
-basic <- data[data$Experimental_Condition == "原始", ]
-```
-
-```{r}
-# 針對心流組的資料，檢驗Minecraft遊玩經驗與心流體驗是否有相關性（大多偏負相關）
-cor.test(flow$Minecraft_Experience, flow$Flow_Total, alternative = "two.sided", method = "spearman")
-cor.test(flow$Minecraft_Experience, flow$Flow_Balance, alternative = "two.sided", method = "spearman")
-cor.test(flow$Minecraft_Experience, flow$Flow_Goal, alternative = "two.sided", method = "spearman")
-cor.test(flow$Minecraft_Experience, flow$Flow_Feedback, alternative = "two.sided", method = "spearman")
-cor.test(flow$Minecraft_Experience, flow$Flow_Merge, alternative = "two.sided", method = "spearman")
-cor.test(flow$Minecraft_Experience, flow$Flow_Concentration, alternative = "two.sided", method = "spearman")
-cor.test(flow$Minecraft_Experience, flow$Flow_Control, alternative = "two.sided", method = "spearman")
-cor.test(flow$Minecraft_Experience, flow$Flow_Loss, alternative = "two.sided", method = "spearman")
-cor.test(flow$Minecraft_Experience, flow$Flow_Time, alternative = "two.sided", method = "spearman")
-cor.test(flow$Minecraft_Experience, flow$Flow_Autotelic, alternative = "two.sided", method = "spearman")
-```
-
-```{r}
-# 針對原始組的資料，檢驗Minecraft遊玩經驗與心流體驗是否有相關性（大多偏正相關）
-cor.test(basic$Minecraft_Experience, basic$Flow_Total, alternative = "two.sided", method = "spearman")
-cor.test(basic$Minecraft_Experience, basic$Flow_Balance, alternative = "two.sided", method = "spearman")
-cor.test(basic$Minecraft_Experience, basic$Flow_Goal, alternative = "two.sided", method = "spearman")
-cor.test(basic$Minecraft_Experience, basic$Flow_Feedback, alternative = "two.sided", method = "spearman")
-cor.test(basic$Minecraft_Experience, basic$Flow_Merge, alternative = "two.sided", method = "spearman")
-cor.test(basic$Minecraft_Experience, basic$Flow_Concentration, alternative = "two.sided", method = "spearman")
-cor.test(basic$Minecraft_Experience, basic$Flow_Control, alternative = "two.sided", method = "spearman")
-cor.test(basic$Minecraft_Experience, basic$Flow_Loss, alternative = "two.sided", method = "spearman")
-cor.test(basic$Minecraft_Experience, basic$Flow_Time, alternative = "two.sided", method = "spearman")
-cor.test(basic$Minecraft_Experience, basic$Flow_Autotelic, alternative = "two.sided", method = "spearman")
-```
-
-```{r}
-# 設置圖形布局和尺寸
+# 設定繪圖布局和尺寸
 par(mfrow = c(2, 2), mar = c(2.5, 2.5, 2.5, 2.5))
 
-# 設置顏色
+# 設定繪圖顏色
 colors <- c("lightblue", "lightyellow")
 
 # 繪製兩組樣本的整體心流箱型圖
@@ -347,7 +301,7 @@ basic_fa <- data[data$Experimental_Condition == "原始", "Flow_Autotelic"]
 all_fa <- list(flow_fa = flow_fa, basic_fa = basic_fa)
 boxplot(all_fa, main = "Autotelic Experience", names = c("Flow-Promoting", "Basic"), col = colors)
 
-# 重置圖形布局
+# 重置繪圖布局
 par(mfrow = c(1, 1))
 ```
 
@@ -359,9 +313,12 @@ data$AUT_Fluency_Difference <- data$AUT_Fluency_Posttest - data$AUT_Fluency_Pret
 data$AUT_Originality_Difference <- data$AUT_Originality_Posttest - data$AUT_Originality_Pretest
 data$RAT_Difference <- data$RAT_Posttest - data$RAT_Pretest
 
+# 提取兩組樣本的資料並分別儲存
 flow <- data[data$Experimental_Condition == "心流", ]
 basic <- data[data$Experimental_Condition == "原始", ]
 ```
+
+#### **Divergent Thinking Fluency**
 
 ```{r}
 # 觀察兩組樣本實驗前後的發散思維流暢性分布
@@ -375,14 +332,8 @@ sd(data[data$Experimental_Condition == "原始", "AUT_Fluency_Pretest"])
 mean(data[data$Experimental_Condition == "原始", "AUT_Fluency_Posttest"])
 sd(data[data$Experimental_Condition == "原始", "AUT_Fluency_Posttest"])
 
-colors <- c("lightblue", "lightyellow")
-
-flow_fpre <- data[data$Experimental_Condition == "心流", "AUT_Fluency_Pretest"]
-flow_fpost <- data[data$Experimental_Condition == "心流", "AUT_Fluency_Posttest"]
-all_fluency <- list(flow_fpre = flow_fpre, flow_fpost = flow_fpost)
-boxplot(all_fluency, main = "Fluency (Flow-Promoting Minecraft)", names = c("Pretest", "Posttest"), col = colors)
-
-boxplot(list(basic$AUT_Fluency_Pretest, basic$AUT_Fluency_Posttest))
+boxplot(list(flow$AUT_Fluency_Pretest, flow$AUT_Fluency_Posttest), main = "Flow-Promoting", names = c("Pretest", "Posttest"))
+boxplot(list(basic$AUT_Fluency_Pretest, basic$AUT_Fluency_Posttest), main = "Basic", names = c("Pretest", "Posttest"))
 ```
 
 ```{r}
@@ -415,6 +366,8 @@ wilcox.test(basic$AUT_Fluency_Pretest, basic$AUT_Fluency_Posttest, alternative =
 wilcox.test(AUT_Fluency_Difference ~ Experimental_Condition, data = data)
 ```
 
+#### **Divergent Thinking Originality**
+
 ```{r}
 # 觀察兩組樣本實驗前後的發散思維獨創性分布
 mean(data[data$Experimental_Condition == "心流", "AUT_Originality_Pretest"])
@@ -427,8 +380,8 @@ sd(data[data$Experimental_Condition == "原始", "AUT_Originality_Pretest"])
 mean(data[data$Experimental_Condition == "原始", "AUT_Originality_Posttest"])
 sd(data[data$Experimental_Condition == "原始", "AUT_Originality_Posttest"])
 
-boxplot(list(flow$AUT_Originality_Pretest, flow$AUT_Originality_Posttest))
-boxplot(list(basic$AUT_Originality_Pretest, basic$AUT_Originality_Posttest))
+boxplot(list(flow$AUT_Originality_Pretest, flow$AUT_Originality_Posttest), main = "Flow-Promoting", names = c("Pretest", "Posttest"))
+boxplot(list(basic$AUT_Originality_Pretest, basic$AUT_Originality_Posttest), main = "Basic", names = c("Pretest", "Posttest"))
 ```
 
 ```{r}
@@ -461,6 +414,8 @@ wilcox.test(basic$AUT_Originality_Pretest, basic$AUT_Originality_Posttest, alter
 wilcox.test(AUT_Originality_Difference ~ Experimental_Condition, data = data)
 ```
 
+#### **Convergent Thinking**
+
 ```{r}
 # 觀察兩組樣本實驗前後的收斂思維能力分布
 mean(data[data$Experimental_Condition == "心流", "RAT_Pretest"])
@@ -473,8 +428,8 @@ sd(data[data$Experimental_Condition == "原始", "RAT_Pretest"])
 mean(data[data$Experimental_Condition == "原始", "RAT_Posttest"])
 sd(data[data$Experimental_Condition == "原始", "RAT_Posttest"])
 
-boxplot(list(flow$RAT_Pretest, flow$RAT_Posttest))
-boxplot(list(basic$RAT_Pretest, basic$RAT_Posttest))
+boxplot(list(flow$RAT_Pretest, flow$RAT_Posttest), main = "Flow-Promoting", names = c("Pretest", "Posttest"))
+boxplot(list(basic$RAT_Pretest, basic$RAT_Posttest), main = "Basic", names = c("Pretest", "Posttest"))
 ```
 
 ```{r}
@@ -507,7 +462,9 @@ wilcox.test(basic$RAT_Pretest, basic$RAT_Posttest, alternative = "two.sided", pa
 wilcox.test(RAT_Difference ~ Experimental_Condition, data = data)
 ```
 
-### **延伸分析（性別差異）**
+### **補充分析（性別差異）**
+
+#### **無母數方法**
 
 ```{r}
 data$ECxG <- with(data, ifelse(Experimental_Condition == "心流" & Gender == "男性", "心流x男性",
@@ -527,6 +484,8 @@ kruskal.test(RAT_Difference ~ ECxG, data = data)
 pairwise.wilcox.test(data$Flow_Total, data$ECxG)
 pairwise.wilcox.test(data$AUT_Fluency_Difference, data$ECxG)
 ```
+
+#### **有母數方法**
 
 ```{r}
 summary(aov(Flow_Total ~ Experimental_Condition * Gender, data = data))
